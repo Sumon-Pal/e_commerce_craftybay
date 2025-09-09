@@ -1,3 +1,4 @@
+import 'package:e_commerce_craftybay/app/extensions/localization_extension.dart';
 import 'package:e_commerce_craftybay/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(AppLocalizations.of(context)!.hello),
+        child: Text(context.localization.hello),
       ),
     );
   }
