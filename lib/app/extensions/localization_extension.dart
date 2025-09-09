@@ -4,5 +4,6 @@ import 'package:flutter/material.dart';
 extension LocalizationExtension on BuildContext{
   AppLocalizations get localization{
     return AppLocalizations.of(this)!;
+
   }
 }
