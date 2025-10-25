@@ -1,11 +1,14 @@
-import 'package:e_commerce_craftybay/features/presentation/screens/splash_screen.dart';
+import 'package:e_commerce_craftybay/app/controllers/language_controller.dart';
+import 'package:e_commerce_craftybay/features/presentation/screens/ln_change_switch.dart';
 import 'package:e_commerce_craftybay/l10n/app_localizations.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 
 class CraftyBay extends StatefulWidget {
   const CraftyBay({super.key});
+  static final LanguageController languageController = LanguageController();
 
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(
@@ -19,20 +22,22 @@ class CraftyBay extends StatefulWidget {
 class _CraftyBayState extends State<CraftyBay> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorObservers: [CraftyBay.observer],
-      localizationsDelegates: [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        Locale('en'), // English
-        Locale('bn'), // Bengali
-      ],
-      locale: Locale('en'),
-      home: SplashScreen(),
+    return GetBuilder(
+      init: CraftyBay.languageController,
+      builder: (languageController) {
+        return MaterialApp(
+          navigatorObservers: [CraftyBay.observer],
+          localizationsDelegates: [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales:languageController.supportedLocale,
+          locale:languageController.currentLocale,
+          home: SplashScreen(),
+        );
+      },
     );
   }
 }
