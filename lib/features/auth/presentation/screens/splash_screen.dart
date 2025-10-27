@@ -1,15 +1,32 @@
-import 'package:e_commerce_craftybay/app/asset_path.dart';
+import 'package:e_commerce_craftybay/app/extensions/localization_extension.dart';
+import 'package:e_commerce_craftybay/app/utils/app_version_service.dart';
+import 'package:e_commerce_craftybay/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../widgets/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  static const String name = '/';
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    _moveToNextScreen();
+  }
+
+  Future<void> _moveToNextScreen()async{
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.pushReplacementNamed(context, SignInScreen.name);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,11 +37,13 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Spacer(),
-              SvgPicture.asset(AssetPaths.logoSvg),
+              AppLogo(),
               Spacer(),
               CircularProgressIndicator(),
-              const SizedBox(height: 8,),
-              Text('Version 1.0.0')
+              const SizedBox(height: 8),
+              Text(
+                '${context.localization.version}${AppVersionService.currentAppVersion}',
+              ),
             ],
           ),
         ),
@@ -32,3 +51,5 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+
+
