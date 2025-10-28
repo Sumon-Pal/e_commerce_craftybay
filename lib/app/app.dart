@@ -24,14 +24,12 @@ class CraftyBay extends StatefulWidget {
 }
 
 class _CraftyBayState extends State<CraftyBay> {
-  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
       init: CraftyBay.languageController,
       builder: (languageController) {
         return MaterialApp(
-          navigatorKey: navigatorKey,
           navigatorObservers: [CraftyBay.observer],
           localizationsDelegates: [
             AppLocalizations.delegate,

@@ -30,11 +30,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 Text('Welcome Back', style: textTheme.titleLarge),
                 Text(
                   'Please Enter your Email Address and Password',
-                  style: textTheme.bodySmall,
+                  style: textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 24),
                 TextFormField(
                   controller: _emailTEController,
+                  keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(hintText: 'Email'),
                 ),
@@ -46,6 +47,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 const SizedBox(height: 16),
                 FilledButton(onPressed: _onTapSignIn, child: Text('Sign In')),
+                const SizedBox(height: 16),
+                TextButton(onPressed: _onTapSignUp, child: Text('Sign Up'))
               ],
             ),
           ),
@@ -55,6 +58,8 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onTapSignIn() {}
+
+  void _onTapSignUp(){}
 
   @override
   void dispose() {
