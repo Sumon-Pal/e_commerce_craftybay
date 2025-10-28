@@ -1,10 +1,11 @@
+import 'package:e_commerce_craftybay/features/auth/presentation/screens/otp_verification_screen.dart';
 import 'package:e_commerce_craftybay/features/auth/presentation/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
-  static const String name = '/sign-in';
+  static const String name = '/sign-up';
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -89,7 +90,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void _onTapSignUp() {}
+  void _onTapSignUp() {
+    Navigator.pushReplacementNamed(context, OtpVerificationScreen.name);
+  }
 
   void _onTapBackToLogIn(){}
 

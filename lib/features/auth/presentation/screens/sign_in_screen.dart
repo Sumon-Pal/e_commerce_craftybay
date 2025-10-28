@@ -1,3 +1,4 @@
+import 'package:e_commerce_craftybay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:e_commerce_craftybay/features/auth/presentation/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 
@@ -48,7 +49,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(height: 16),
                 FilledButton(onPressed: _onTapSignIn, child: Text('Sign In')),
                 const SizedBox(height: 16),
-                TextButton(onPressed: _onTapSignUp, child: Text('Sign Up'))
+                TextButton(onPressed: _onTapSignUp, child: Text('Sign Up')),
               ],
             ),
           ),
@@ -59,7 +60,9 @@ class _SignInScreenState extends State<SignInScreen> {
 
   void _onTapSignIn() {}
 
-  void _onTapSignUp(){}
+  void _onTapSignUp() {
+    Navigator.pushNamed(context, SignUpScreen.name);
+  }
 
   @override
   void dispose() {

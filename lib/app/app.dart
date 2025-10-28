@@ -1,6 +1,8 @@
 import 'package:e_commerce_craftybay/app/app_theme.dart';
 import 'package:e_commerce_craftybay/app/controllers/language_controller.dart';
+import 'package:e_commerce_craftybay/features/auth/presentation/screens/otp_verification_screen.dart';
 import 'package:e_commerce_craftybay/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:e_commerce_craftybay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:e_commerce_craftybay/features/auth/presentation/screens/splash_screen.dart';
 import 'package:e_commerce_craftybay/l10n/app_localizations.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -51,6 +53,10 @@ class _CraftyBayState extends State<CraftyBay> {
               screen = SplashScreen();
             }else if(setting.name == SignInScreen.name){
               screen = SignInScreen();
+            }else if(setting.name == SignUpScreen.name){
+              screen = SignUpScreen();
+            }else if(setting.name == OtpVerificationScreen.name){
+              screen = OtpVerificationScreen();
             }
             return MaterialPageRoute(builder: (ctx)=>screen);
           },
