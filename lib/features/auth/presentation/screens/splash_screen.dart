@@ -1,6 +1,6 @@
 import 'package:e_commerce_craftybay/app/extensions/localization_extension.dart';
 import 'package:e_commerce_craftybay/app/utils/app_version_service.dart';
-import 'package:e_commerce_craftybay/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:e_commerce_craftybay/features/shared/presentation/bottom_nav_holder_screen.dart';
 import 'package:flutter/material.dart';
 import '../widgets/app_logo.dart';
 
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _moveToNextScreen()async{
     await Future.delayed(Duration(seconds: 3));
-    Navigator.pushReplacementNamed(context, SignInScreen.name);
+    Navigator.pushReplacementNamed(context, BottomNavHolderScreen.name);
   }
 
 

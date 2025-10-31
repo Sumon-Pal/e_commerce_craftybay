@@ -1,6 +1,6 @@
 import 'package:e_commerce_craftybay/app/extensions/localization_extension.dart';
 import 'package:flutter/material.dart';
-import '../widgets/language_change_switch.dart';
+import '../../../shared/widgets/language_change_switch.dart';
 
 class LnChangeSwitch extends StatefulWidget {
   const LnChangeSwitch({super.key});
