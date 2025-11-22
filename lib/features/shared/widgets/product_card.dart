@@ -1,19 +1,17 @@
 import 'package:e_commerce_craftybay/app/constrants.dart';
 import 'package:flutter/material.dart';
 import '../../../../app/app_colors.dart';
+import '../../../app/asset_path.dart';
 import '../../products/presentation/screens/product_details_screen.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key});
 
-  // final ProductModel productModel;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
-            context, ProductDetailsScreen.name, );
+        Navigator.pushNamed(context, ProductDetailsScreen.name);
       },
       child: Card(
         color: Colors.white,
@@ -23,7 +21,7 @@ class ProductCard extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: AppColors.themeColor.withOpacity(0.1),
                   borderRadius: BorderRadius.only(
@@ -32,23 +30,11 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 child: Image.asset(
-                 // productModel.photos.firstOrNull ?? '',
-                  //AssetPaths.shoe,
-                 'assets/images/shoe.png',
+                  AssetPaths.shoe,
+                  //'assets/images/shoe.png',
                   width: 140,
                   height: 80,
                   fit: BoxFit.cover,
-                  // errorBuilder: (_, __, ___) {
-                  //   return SizedBox(
-                  //     width: 140,
-                  //     height: 80,
-                  //     child: Icon(
-                  //       Icons.error_outline,
-                  //       size: 48,
-                  //       color: Colors.grey,
-                  //     ),
-                  //   );
-                  // },
                 ),
               ),
               Padding(
